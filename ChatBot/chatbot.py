@@ -20,9 +20,11 @@ print ("1. To repeat a statement multiple times.")
 print ("2. To decompose a program into several small subroutines.")
 print ("3. To determine the execution time of a program.")
 print ("4. To interrupt the execution of a program.")
-x = int(input())
-if x == 2:
-    print ("Completed, have a nice day!")
-else:
-    print ("Please, try again.")
+x = 0
+while x != 2:
+    x = int(input())
+    if x == 2:
+        print ("Completed, have a nice day!")
+    else:
+        print ("Please, try again.")
 print ("Congratulations, have a nice day!")
