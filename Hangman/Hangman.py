@@ -1,18 +1,30 @@
 import random
 
-print("HANGMAN")
+print("""HANGMAN
+Try guess word:""")
 
-qw1: list[str] = ["python", "java", "javascript", "php"]
+qw1 = ["python", "java", "javascript", "php"]
 qw2 = random.choice(qw1)
-lena = len(qw2[2:-1])
+let = ''
+tries = 8
 
-your_word = ''
-start = str(input())
+while tries > 0:
+    misses = 0
+    for letter in qw2:
+        if letter in let:
+            print(letter,end=' ')
+        else:
+          print('_',end=' ')
+          misses = misses + 1
 
-print("Guess the word")
-print(qw2[:3] + '-' * lena)
-your_word = str(input(" guess the word > "))
-if your_word == qw2:
-    print("You win!")
-else:
-    print("You lost")
+    if misses == 0:
+        print("You survived!")
+        break
+
+
+    guess = input('')
+    let += guess
+    if guess not in qw2:
+        tries -= 1
+        if tries == 0:
+            print("You lost!")
