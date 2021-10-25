@@ -8,50 +8,82 @@ money = 550
 
 def espr():
     global water, beans, money, amount
-    water -= 250
-    beans -= 16
-    amount -= 1
-    money += 4
-    return
+    if water > 249 and beans > 15 and amount > 0:
+        print("I have enough resources, making you a coffee!")
+        water -= 250
+        beans -= 16
+        amount -= 1
+        money += 4
+        return
+    if water < 250:
+        print("Sorry, not enough water!")
+    if beans < 16:
+        print("Sorry, not enough coffee beans!")
+    if amount < 1:
+        print("Sorry, not enough disposable cups!")
 
 
 def lat():
     global  water, milk, beans, money, amount
-    water -= 350
-    milk -= 75
-    beans -= 20
-    amount -= 1
-    money += 7
-    return
+    if water > 249 and beans > 15 and amount > 0:
+        print("I have enough resources, making you a coffee!")
+        water -= 350
+        milk -= 75
+        beans -= 20
+        amount -= 1
+        money += 7
+        return
+    if water < 350:
+        print("Sorry, not enough water!")
+    if beans < 20:
+        print("Sorry, not enough coffee beans!")
+    if amount < 1:
+        print("Sorry, not enough disposable cups!")
+    if milk < 75:
+        print("Sorry, not enough milk!")
 
 
 def cap():
-    global water, milk, beans, money, amount
-    water -= 200
-    milk -= 100
-    beans -= 12
-    money += 6
-    return
+    if water > 249 and beans > 15 and amount > 0:
+        print("I have enough resources, making you a coffee!")
+        water -= 200
+        milk -= 100
+        beans -= 16
+        amount -= 1
+        money += 6
+        return
+    if water < 250:
+        print("Sorry, not enough water!")
+    if beans < 16:
+        print("Sorry, not enough coffee beans!")
+    if amount < 1:
+        print("Sorry, not enough disposable cups!")
+    if milk < 100:
+        print("Sorry, not enough milk!")
 
 
 def vod():
     global water, milk, beans, money, amount
+    print ("")
     print("The coffee machine has:\n" + str(water) + " of water\n" + str(milk) + " of milk")
     print(str(beans) + " of coffee beans\n" + str(amount) + " of disposable cups")
     print(str(money) + " of money")
 
 
 def buy ():
-    x = int(input("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappucino: "))
-    if x == 1:
-        espr()
-    elif x == 2:
-        lat()
-    elif x == 3:
-        cap()
-    else:
-        print("Enter the correct number")
-    vod()
+    while True:
+        x = int(input("What do you want to buy?\n1 - espresso, 2 - latte, 3 - cappuccino, 4 - back to main menu: "))
+        if x == 1:
+            espr()
+        elif x == 2:
+            lat()
+        elif x == 3:
+            cap()
+        elif x == 4:
+            break
+        else:
+            print("enter the correct number")
+        break
 
 
 def fill():
@@ -71,17 +103,17 @@ def tak():
 
 
 while True:
-    vod()
     print("")
-    answer = input("Write action (buy, fill, take): ")
+    answer = input("Write action (buy, fill, take, remaining, exit): ")
     if answer == "buy":
         buy()
-        break
     elif answer == "fill":
         fill()
-        break
     elif answer == "take":
         tak()
+    elif answer == "remaining":
+        vod()
+    elif answer == "exit":
         break
     else:
         print("Enter the action correctly")
