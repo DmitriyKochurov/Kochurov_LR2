@@ -7,6 +7,16 @@ class Machine:
         self.amount = 9
         self.money = 550
 
+    def fill(self):
+        self.water += int(input("Write how many ml of water you want to add: "))
+        self.milk += int(input("Write how many ml of milk you want to add: "))
+        self.beans += int(input("Write how many grams of coffee beans you want to add: "))
+        self.amount += int(input("Write how many disposable coffee cups you want to add: "))
+
+    def tak(self):
+        print(f"\nI gave you {self.money}")
+        self.money -= self.money
+
     def espresso(self):
         if self.water > 249 and self.beans > 15 and self.amount > 0:
             print("I have enough resources, making you a coffee!")
@@ -82,16 +92,6 @@ class Machine:
                 print("enter the correct number")
             break
 
-def fill(self):
-    self.water += int(input("Write how many ml of water you want to add: "))
-    self.milk += int(input("Write how many ml of milk you want to add: "))
-    self.beans += int(input("Write how many grams of coffee beans you want to add: "))
-    self.amount += int(input("Write how many disposable coffee cups you want to add: "))
-
-def tak(self):
-    print(f"\nI gave you {self.money}")
-    self.money -= self.money
-
 
 cf = Machine()
 
@@ -103,7 +103,7 @@ while True:
     elif answer == "fill":
         cf.fill()
     elif answer == "take":
-        cf.take()
+        cf.tak()
     elif answer == "remaining":
         cf.vod()
     elif answer == "exit":
