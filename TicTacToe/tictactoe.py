@@ -47,7 +47,7 @@ def bars():
 
 
 def gax():
-    while win == 1:
+    while winn == 1:
         player = "X"
         answer = input(f"Please, input the coordinates (x y), player is {player}: ")
         coordinates = list(answer)
@@ -88,7 +88,7 @@ def gax():
 
 
 def gao():
-    while win == 1:
+    while winn == 1:
         player = "O"
         answer = input(f"Please, input the coordinates (x y), player is {player}: ")
         coordinates = list(answer)
@@ -128,6 +128,6 @@ def gao():
 
 
 bars()
-while win == 1:
+while winn == 1:
     gax()
     gao()
