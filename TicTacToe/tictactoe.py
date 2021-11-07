@@ -1,7 +1,7 @@
 board = {11: "_", 12: "_", 13: "_",
          21: "_", 22: "_", 23: "_",
          31: "_", 32: "_", 33: "_"}
-win = 1
+winn = 1
 
 def che():
     list_board = [value for value in board.values()]
