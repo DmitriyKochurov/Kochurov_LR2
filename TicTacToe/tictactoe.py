@@ -5,12 +5,12 @@ print(f"""{"-" * 9}
 {"-" * 9}""")
 
 
-def checkout():
-    amount_x = data.count("X")
-    amount_o = data.count("O")
-    amount__ = data.count("_")
-    if amount_x == amount_o or amount_x == amount_o + 1 or amount_x == amount_o - 1:
-        if amount__ == 0:
+def che():
+    amo_1 = data.count("X")
+    amo_2 = data.count("O")
+    amo_3 = data.count("_")
+    if amo_1 == amo_2 or amo_1 == amo_2 + 1 or amo_1 == amo_2 - 1:
+        if amo_3 == 0:
             if data[0] == data[3] == data[6] != "_":
                 print(f"{data[0]} win!")
             elif data[1] == data[4] == data[7] != "_":
@@ -44,7 +44,7 @@ while True:
 | {data[3]} {data[4]} {data[5]} |
 | {data[6]} {data[7]} {data[8]} |
 ---------""")
-        checkout()
+        che()
         break
     else:
         print("try again")
