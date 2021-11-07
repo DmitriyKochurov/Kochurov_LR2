@@ -1,50 +1,134 @@
-print(f"""{"-" * 9}
-| _ _ _ |
-| _ _ _ |
-| _ _ _ |
-{"-" * 9}""")
+list_board = list(input("Enter cells: "))
+board_1 = list_board.count("X")
+board_2 = list_board.count("O")
+board_3 = list_board.count("_")
+winn = 0
 
 
-def che():
-    amo_1 = data.count("X")
-    amo_2 = data.count("O")
-    amo_3 = data.count("_")
-    if amo_1 == amo_2 or amo_1 == amo_2 + 1 or amo_1 == amo_2 - 1:
-        if amo_3 == 0:
-            if data[0] == data[3] == data[6] != "_":
-                print(f"{data[0]} win!")
-            elif data[1] == data[4] == data[7] != "_":
-                print(f"{data[1]} win!")
-            elif data[2] == data[5] == data[8] != "_":
-                print(f"{data[2]} win!")
-            elif data[0] == data[4] == data[8] != "_":
-                print(f"{data[0]} win!")
-            elif data[2] == data[4] == data[6] != "_":
-                print(f"{data[2]} win!")
-            elif data[0] == data[1] == data[2] != "_":
-                print(f"{data[0]} win!")
-            elif data[3] == data[4] == data[5] != "_":
-                print(f"{data[3]} win!")
-            elif data[6] == data[7] == data[8] != "_":
-                print(f"{data[6]} win!")
-            else:
-                print("Draw")
-        else:
-            print("Game not finish")
-    else:
-        print("Impossible")
+def bard():
+    print("-" * 9)
+    print(f"""|{list_board[0]} {list_board[1]} {list_board[2]}|
+|{list_board[3]} {list_board[4]} {list_board[5]}|
+|{list_board[6]} {list_board[7]} {list_board[8]}|""")
+    print("-" * 9)
+
+
+def rslt():
+    global winn
+    if list_board[0] == list_board[1] == list_board[2] != "_":
+        print(list_board[0] + " wins")
+        winn += 1
+    elif list_board[3] == list_board[4] == list_board[5] != "_":
+        print(list_board[3] + " wins")
+        winn += 1
+    elif list_board[6] == list_board[7] == list_board[8] != "_":
+        print(list_board[6] + " wins")
+        winn += 1
+    elif list_board[2] == list_board[5] == list_board[8] != "_":
+        print(list_board[2] + " wins")
+        winn += 1
+    elif list_board[0] == list_board[3] == list_board[6] != "_":
+        print(list_board[0] + " wins")
+        winn += 1
+    elif list_board[0] == list_board[3] == list_board[6] != "_":
+        print(list_board[0] + " wins")
+        winn += 1
+    elif list_board[1] == list_board[4] == list_board[7] != "_":
+        print(list_board[1] + " wins")
+        winn += 1
+    elif list_board[2] == list_board[5] == list_board[8] != "_":
+        print(list_board[2] + " wins")
+        winn += 1
+    elif board_3 < 1:
+        winn += 1
+        print("Draw")
+
+
+bard()
+pl = "X"
 
 
 while True:
-    entry = input("Please, enter a string consisting of 9 characters 'X', 'O' or '_': ")
-    data = list(entry)
-    if len(entry) == 9:
-        print(f"""---------
-| {data[0]} {data[1]} {data[2]} |
-| {data[3]} {data[4]} {data[5]} |
-| {data[6]} {data[7]} {data[8]} |
----------""")
-        che()
-        break
+    take = input("Enter the coordinates: ")
+    coord = list(take)
+    x, y = str(coord[2]), str(coord[0])
+    if x.isalpha() or y.isalpha() or x == " " or y == " ":
+        print("You should enter numbers!")
+        continue
+    elif y == "1":
+        if x == "1":
+            if str(list_board[0]) != "X" and list_board[0] != "O":
+                list_board[0] = pl
+            else:
+                print("This cell is occupied! Choose another one!")
+                continue
+        elif x == "2":
+            if list_board[1] != "X" and list_board[1] != "O":
+                list_board[1] = pl
+            else:
+                print("This cell is occupied! Choose another one!")
+                continue
+        elif x == "3":
+            if list_board[2] != "X" and list_board[2] != "O":
+                list_board[2] = pl
+            else:
+                print("This cell is occupied! Choose another one!")
+                continue
+        else:
+            print("Coordinates should be from 1 to 3!")
+            continue
+    elif y == "2":
+        if x == "1":
+            if list_board[3] != "X" and list_board[3] != "O":
+                list_board[3] = pl
+            else:
+                print("This cell is occupied! Choose another one!")
+                continue
+        elif x == "2":
+            if list_board[4] != "X" and list_board[4] != "O":
+                list_board[4] = pl
+            else:
+                print("This cell is occupied! Choose another one!")
+                continue
+        elif x == "3":
+            if list_board[5] != "X" and list_board[5] != "O":
+                list_board[5] = pl
+            else:
+                print("This cell is occupied! Choose another one!")
+                continue
+        else:
+            print("Coordinates should be from 1 to 3!")
+            continue
+    elif y == "3":
+        if x == "1":
+            if list_board[6] != "X" and list_board[6] != "O":
+                list_board[6] = pl
+            else:
+                print("This cell is occupied! Choose another one!")
+                continue
+        elif x == "2":
+            if list_board[7] != "X" and list_board[7] != "O":
+                list_board[7] = pl
+            else:
+                print("This cell is occupied! Choose another one!")
+                continue
+        elif x == "3":
+            if list_board[8] != "X" and list_board[8] != "O":
+                list_board[8] = pl
+            else:
+                print("This cell is occupied! Choose another one!")
+                continue
+        else:
+            print("Coordinates should be from 1 to 3!")
+            continue
     else:
-        print("try again")
+        print("Coordinates should be from 1 to 3!")
+        continue
+    bard()
+    rslt()
+    if winn > 0:
+        break
+    if pl == "X":
+        pl = "O"
+    else:
+        pl = "X"
